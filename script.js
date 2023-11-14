@@ -14,12 +14,12 @@ try {
 
 // Setup API Parameters
 
-const url ='https://flightradar24-com.p.rapidapi.com/flights/detail?flight_id=';
+const url = 'https://flightera-flight-data.p.rapidapi.com/flight/statistics?flnr=';
 const options = {
 	method: 'GET',
 	headers: {
 		'X-RapidAPI-Key': '3cb52b4f2fmsh629fc0299548133p1054f1jsnf1ff73b6d88a',
-		'X-RapidAPI-Host': 'flightradar24-com.p.rapidapi.com'
+		'X-RapidAPI-Host': 'flightera-flight-data.p.rapidapi.com'
 	}
 };
 
@@ -36,7 +36,7 @@ replyBox.id = 'replybox';
 const userRequest = async () =>
 {
     // Setup our fetch URL
-    const flightID = userFlightBox.value;
+    const flightID = userFlightBox.value.toUpperCase();
     const fetchURL = url + flightID;
 
     // Query the API
@@ -46,15 +46,9 @@ const userRequest = async () =>
         // Convert the data to JS Obj
         const apiText = await response.text();
         const apiObj = await JSON.parse(apiText);
-        console.log(apiObj);
-
-        // Extract list of Airports
-        let airports = [];
-        for(airport in apiObj.data){
-            airports.push(apiObj.data[airport].id);
-        }
+        console.log(await apiText);
         
-        // If we have multiple, let the user select
+        // Extract information about the flight
 
 
     }catch(error){

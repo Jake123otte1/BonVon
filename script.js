@@ -48,7 +48,7 @@ const userRequest = async () =>
         const apiObj = await JSON.parse(apiText);
         console.log(await apiText);
         
-        // Extract information about the flight
+        // 
 
 
     }catch(error){

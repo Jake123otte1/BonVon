@@ -1,61 +1,32 @@
-
-
-/*  --- EXAMPLE QUERY ---
-const textReq = async() =>{
-try {
-	const response = await fetch(url, options);
-	const result = await response.text();
-	console.log(result);
-} catch (error) {
-	console.error(error);
-}
-};
-*/
+import { objectFetch } from "./util.js";
 
 // Setup API Parameters
 
-const url = 'https://flightera-flight-data.p.rapidapi.com/flight/statistics?flnr=';
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '3cb52b4f2fmsh629fc0299548133p1054f1jsnf1ff73b6d88a',
-		'X-RapidAPI-Host': 'flightera-flight-data.p.rapidapi.com'
-	}
+const ftURL = 'https://flightera-flight-data.p.rapidapi.com/flight/info?flnr=';
+const ftOptions = {
+  method: 'GET',
+  headers: {
+    'X-RapidAPI-Key': '666811c3damshbcdedc58cd6ad5ap1317ccjsnd388ead41b9b',
+    'X-RapidAPI-Host': 'flightera-flight-data.p.rapidapi.com'
+  }
 };
+
+// Setup a global object for current flight information
+
+let flightInfo;
 
 // Get elements from DOM that we are going to use:
 
-const userFlightBox = document.getElementById("flightBox");
+const flightBox = document.getElementById("flightBox");
 const flyButton = document.getElementById("flybutton");
 
-// Setup a DOM element that we can use to provide API replies:
+// Setup a callback function to get flight information
 
-const replyBox = document.createElement('p');
-replyBox.id = 'replybox';
+const getInfo = async() =>{
+    const flightFetch = ftURL + flightBox.value;
+    const infoObj = await objectFetch(flightFetch,ftOptions);
+    flightInfo = infoObj[0];
+    console.log(flightInfo);
+}
 
-const userRequest = async () =>
-{
-    // Setup our fetch URL
-    const flightID = userFlightBox.value.toUpperCase();
-    const fetchURL = url + flightID;
-
-    // Query the API
-    try{
-        const response = await fetch(fetchURL, options);
-
-        // Convert the data to JS Obj
-        const apiText = await response.text();
-        const apiObj = await JSON.parse(apiText);
-        console.log(await apiText);
-        
-        // 
-
-
-    }catch(error){
-        console.log(error);
-    }
-
-};
-
-
-flyButton.addEventListener("click", userRequest);
+flyButton.addEventListener("click", getInfo);

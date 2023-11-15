@@ -160,4 +160,82 @@ footer h2, footer h2 a{
     color: rgb(0, 47, 255);
 }
 
-/* TESTING !!! */
+main h1, main h2, main progress{
+    display: none;
+}
+
+/* NECESSARY TRANSFORMS */
+
+/*
+.leaderboard, #flightBox, #flybutton{
+    display: none;
+}
+main{
+    height: 600px;
+    width: 60%;
+}
+
+main h1{
+    color:white;
+    font-size: 35px;
+    border: 3px solid white;
+    border-radius: 10px;
+    padding: 10px 50px;
+    margin-bottom: 0;
+}
+
+.labels{
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+}
+.labels h2{
+    letter-spacing: 1px;
+    color: white;
+    width: 30%;
+    text-align: center;
+    padding: 10px 0px;
+    margin: 10px 120px;
+    font-size: 25px;
+    border-bottom: dotted white 3px;
+}
+
+.route{
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+}
+.route h2{
+    letter-spacing: 1px;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0px;
+    margin: 10px;
+    font-size: 30px;
+}
+
+.timing{
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+}
+.timing h2{
+    letter-spacing: 1px;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0px;
+    margin: 10px;
+    font-size: 20px;
+}
+
+main h2{
+    color: white;
+    font-size: 25px;
+}
+main progress{
+    width: 70%;
+    height: 10%;
+}
+*/

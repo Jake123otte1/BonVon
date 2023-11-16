@@ -1,4 +1,4 @@
-import { objectFetch } from "./util.js";
+import { objectFetch, openResponse, openSearch, makeResponse, searchError } from "./util.js";
 
 // Setup API Parameters
 
@@ -6,7 +6,7 @@ const ftURL = 'https://flightera-flight-data.p.rapidapi.com/flight/info?flnr=';
 const ftOptions = {
   method: 'GET',
   headers: {
-    'X-RapidAPI-Key': '666811c3damshbcdedc58cd6ad5ap1317ccjsnd388ead41b9b',
+    'X-RapidAPI-Key': '54a31b100cmsh367d7903bb873d8p1afd20jsnb32eb7f4aa56',
     'X-RapidAPI-Host': 'flightera-flight-data.p.rapidapi.com'
   }
 };
@@ -15,7 +15,7 @@ const frUrl = 'https://flight-radar1.p.rapidapi.com/flights/list-most-tracked';
 const frOptions = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '3cb52b4f2fmsh629fc0299548133p1054f1jsnf1ff73b6d88a',
+		'X-RapidAPI-Key': '54a31b100cmsh367d7903bb873d8p1afd20jsnb32eb7f4aa56',
 		'X-RapidAPI-Host': 'flight-radar1.p.rapidapi.com'
 	}
 };
@@ -26,13 +26,15 @@ let flightInfo;
 
 // Get elements from DOM that we are going to use:
 
-const flightBox = document.getElementById("flightBox");
-const flyButton = document.getElementById("flybutton");
-const leaderList = document.getElementById("listcontainer");
+const flightBox = document.querySelector("#flightBox");
+const flyButton = document.querySelector("#flybutton");
+const leaderList = document.querySelector("#listcontainer");
+const leaderboard = document.querySelector(".leaderboard");
+const returnButton = document.querySelector("#return");
 
 // Populate the 'Top 10 Tracked Flights' Leaderboard
 
-const leaderboard = async () =>
+const popLeaderboard = async () =>
 {
   // API request for current most tracked flights
   const leaderObj = await objectFetch(frUrl,frOptions);
@@ -62,10 +64,28 @@ const leaderboard = async () =>
 // Setup a callback function to get flight information
 
 const getInfo = async() =>{
+
+    // API call to get flight info
     const flightFetch = ftURL + flightBox.value;
     const infoObj = await objectFetch(flightFetch,ftOptions);
+    console.log(infoObj);
+
+    if(infoObj === "Error logged."){
+      searchError();
+      return 0;
+    }
+    
+    // Populate fields
     flightInfo = infoObj[0];
+    makeResponse(flightInfo);
+
+    // Update UI
+    openResponse();
+
 }
 
-leaderboard();
+popLeaderboard();
 flyButton.addEventListener("click", getInfo);
+returnButton.addEventListener("click",openSearch);
+
+export { flightBox, flyButton, leaderboard };

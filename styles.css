@@ -41,6 +41,7 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: all 0.6s;
 }
 #flightBox{
     margin-top: 30px;
@@ -57,6 +58,7 @@ main{
     padding-left: 60px;
     font-size: 20px;
     color: rgb(50, 148, 187);
+    display: static;
 }
 #flightBox:focus{
     background-color: rgb(235, 244, 247);
@@ -72,6 +74,7 @@ main{
     margin-top: 20px;
     width: 20%;
     min-width: 100px;
+    max-height: 50px;
     border-radius: 30px;
     padding: 5px 30px;
     color:black;
@@ -97,6 +100,7 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-items: center;
 
 }
 .leaderboard h2{
@@ -151,7 +155,7 @@ footer h2, footer h2 a{
     font-family: Inconsolata;
     color: white;
     font-size: 20px;
-    padding-top: 10px;
+    padding-top: 8px;
     margin: 0;
 }
 
@@ -160,7 +164,8 @@ footer h2, footer h2 a{
     color: rgb(0, 47, 255);
 }
 
-main h1, main h2, main progress{
+
+.rbox{
     display: none;
 }
 
@@ -174,6 +179,9 @@ main{
     height: 600px;
     width: 60%;
 }
+*/
+
+/* Response Box */
 
 main h1{
     color:white;
@@ -233,9 +241,21 @@ main h1{
 main h2{
     color: white;
     font-size: 25px;
+    margin: 10px;
 }
 main progress{
     width: 70%;
     height: 10%;
 }
-*/
+main h4{
+    background-color: white;
+    border-radius: 10px;
+    border: 3px solid white;
+    margin: 20px;
+    padding: 8px 60px;
+    color: rgb(61, 60, 60);
+}
+main h4:hover{
+    border: 3px solid rgb(117, 116, 116);
+    cursor: pointer;
+}

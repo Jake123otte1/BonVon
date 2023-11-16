@@ -16,22 +16,24 @@
         <input type="text" name="flight" id="flightBox" placeholder="Enter a flight number...">
         <button type="submit" id="flybutton">Fly!</button>
 
-        <h1>Flight UXWDZAE</h1>
+        <h1 class="rbox" id="flnr">Flight UXWDZAE</h1>
         <div class="labels">
-            <h2>Origin</h2><h2>Destination</h2>
+            <h2 class="rbox">Origin</h2><h2 class="rbox">Destination</h2>
         </div>
         <div class="route">
-            <h2>New York, New York</h2><h2>Boston, Massachusetts</h2>
+            <h2 class="rbox">New York, New York</h2><h2 class="rbox">Boston, Massachusetts</h2>
         </div>
         <div class="timing">
-            <h2>November 14th, 2023, 13:01 PM</h2><h2>November 14th, 2023, 13:01 PM</h2>
+            <h2 class="rbox">November 14th, 2023, 13:01 PM</h2><h2 class="rbox">November 14th, 2023, 13:01 PM</h2>
         </div>
-        <h2>Flight Progress</h2>
-        <progress id="progressbar" max="100" value="30"></progress>
-        <h2>Status: Flying</h2>
-        
+        <h2 class="rbox">Flight Progress</h2>
+        <progress class="rbox" id="progressbar" max="100" value="30"></progress>
+        <h2 class="rbox" id="fltst">Status: Flying</h2>
+        <h4 class="rbox" id="return">Search for another flight...</h4>
+
 
     </main>
+
     <div class="leaderboard">
         <h2>Top 10 Tracked Flights</h2>
         <div class="leaderlist">
@@ -54,7 +56,8 @@
 </div>
     <footer>
         <h2>Made By Jake Otte</h2>
-        <h2>Powered by <a id="api-link" target="_blank" href="https://rapidapi.com/flightera/api/flightera-flight-data">Flightera API</a></h2>
+        <h2>Powered by <a id="api-link" target="_blank" href="https://rapidapi.com/flightera/api/flightera-flight-data">Flightera API</a> and <a id="api-link" target="_blank" href="https://rapidapi.com/apidojo/api/flight-radar1">FlightRadar API</a></h2>
+        <h2>All flight times are in UTC.</h2>
     </footer>
 </body>
 
